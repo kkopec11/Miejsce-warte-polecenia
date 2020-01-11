@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8">
+	 <link rel="stylesheet" href="css/Rejestracja.style.css" />
+    <title>Rejestracja</title>
+  </head>
+
+  <body>
+		<div class="zarej">
+		<h1>Zarejestruj się: <h1>
+		</div>
+		<div class="srodek" > 
+			<form id="myForm" novalidate>
+				<p>
+					<label for="login">Login</label>
+					<input type="text" name="Login" id="login" onfocusout="validateLogin()"/>
+					<span ></span>
+				</p>
+				<p>
+					<label for="password">Hasło</label>
+					<input type="password" name="Hasło"id="password" onfocusout="validatePassword()"/>
+					<span ></span>
+				</p>
+				<p>
+					<label for="firstName">Imie</label>
+					<input type="text" name="Imie"id="firstName" onfocusout="validateFirstName()"/>
+					<span ></span>
+				</p>
+				<p>
+					<label for="lastName">Nazwisko</label>
+					<input type="text" name="Nazwisko"id="lastName" onfocusout="validateLastName()"/>
+					<span ></span>
+				</p>
+				<p>
+					<label for="email">Email</label>
+					<input type="text" name="Email"id="email" onfocusout="validateEmail()"/>
+					<span ></span>
+				</p>
+				<p>
+					<label for="opis">Opis</label>
+					<textarea name="opis" id="opis" rows="4" cols="50">Jeżeli chcesz to napisz kilka zdan o sobie</textarea>
+				</p>
+
+
+				<button type="submit">Zarejestruj się</button>
+		<div>
+			<p><a href="/">Strona główna</a> > Zarejestruj > <a href="/rejestr/kontakt">Kontakt</a></p>
+
+		</div>
+		</div> 
+			
+		<div class="zdjecie">
+			<img src="ZDJ/Rejestracja.jpg" alt="krajobraz" >
+		</div>
+
+		<script src="JS/Rejestracja.js"></script>
+  </body>
+</html>	
+

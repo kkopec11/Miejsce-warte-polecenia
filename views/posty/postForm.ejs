@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title><%= pageTitle %></title>
+    <link rel='stylesheet' href='../css/main.css'>
+    <link rel='stylesheet' href='../css/form.css'>
+    
+</head>
+
+<body>
+    <div >
+        <a href="/">Strona główna</a>
+        <a href="/posty">Posty</a>
+    </div>
+    
+    <div class="form-container">
+        <h2> <%= pageTitle %></h2>
+        <form action="/posty/<%= formAction %>" method="POST">
+            <input type="hidden" name="post_id" value="<%= post.id %>"></input>
+
+            <label for="tytul">Tytuł:</label>
+            <input id="tytul" name="title" type="text" <%= formAction ? '' : 'readonly' %>
+                value="<%= post.tytul %>"></input>
+
+            <label for="ocena">Ocena:</label>
+            <input id="ocena" name="score" type="text" <%= formAction ? '' : 'readonly' %>
+                value="<%= post.ocena %>"></input>
+
+            <label for="opis">Opis:</label>
+            <input id="opis" name="desc" type="text" <%= formAction ? '' : 'readonly' %>
+                value="<%= post.opis %>"></input>            
+                
+            <div class="form-actions-container">
+                <% if( formAction ) { %>
+                <input type="submit" value="Zapisz" class="action-btn"></input>
+                <% } %>
+                <a href="/posty" class="action-btn">Anuluj</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

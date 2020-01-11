@@ -1,0 +1,23 @@
+* {
+	background-color: rgb(155 ,205 ,95);
+}
+body{
+	margin:15px;
+}
+h1{
+	display:flex;
+	justify-content: center;
+}
+.srodek{
+	display:flex;
+	justify-content: flex-start;
+}
+.dodajZdj{
+	margin-right:35px;
+	display:flex;
+	justify-content: flex-end;
+}
+.zapisz{
+	display:flex;
+	justify-content: center;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8">
+	 <link rel="stylesheet" href="../css/DodajPost.style.css" />
+    <title>Dodaj post</title>
+  </head>
+  <body>
+	<div class="tytuł">
+		<h1>Dodaj nowy post o ciekawym miejscu !</h1>
+	</div>
+		<h3>Wybierz miejsce z listy dostępnej poniżej: </h3>
+	<br>
+	<div class="przycisk" >
+		<label for="przycisk">Jeżeli miejsca kitórego szukasz nie ma na liście, możesz je dodać klikając tutaj: </label>
+			<input name="przycisk" type="button" onclick="window.location.href = 'DodajMiejsce.html';" value="CLICK"/>		
+	</div>
+	<br>
+	<div class="tabela" >
+		<table style="width:90%">
+		<tr>
+			<th align="center">Nazwa</th>
+			<th align="center">Data dodania</th> 
+			<th align="center">Ocena danego miejsca</th>
+		</tr>
+		<tr>
+			<td>Starówka Dubrownik</td>
+			<td>15.09.2019</td>
+			<td align="center">8</td>
+		</tr>
+		<tr>
+			<td>Plaza Włochy</td>
+			<td>04.06.2019</td>
+			<td align="center">7</td>
+		</tr>
+		<tr>
+			<td>Restauracja "Pod Papugami"</td>
+			<td>19.10.2019</td>
+			<td align="center">10</td>
+		</tr>
+		</table>
+	</div>
+	<br><br><br>
+	<div class="zatwierdz">
+		<label for="zatw">Po wybraniu miejsca kliknij przycisk: </label>
+			<input name="zatw" type="button" onclick="window.location.href = '/posty/zapiszPost';" value="DALEJ"/>
+	</div>
+	<div class="nawigacja">
+			<p><a href="/">Strona główna</a> > <a href="/profil" >Mój profil</a> > Dodaj post</p>
+
+		</div>
+  </body>
+</html>	
+
+
+	

@@ -1,0 +1,27 @@
+* {
+	background-color: rgb(155 ,205 ,95);
+}
+body{
+	margin: 10px;
+}
+.tytuł{
+	display:flex;
+	justify-content: center;
+}
+h3{
+	margin-left:40px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-left:45px;
+}
+.przycisk{
+	margin-left: 40px;
+}	
+.zatwierdz{
+	margin-right:40px;
+	margin-top:20px;
+	display:flex;
+	justify-content: flex-end;
+}

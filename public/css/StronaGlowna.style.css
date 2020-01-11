@@ -1,0 +1,60 @@
+* {
+	margin: 1;
+	padding: 1;
+	
+	background-color: rgb(155 ,205 ,95);
+
+}
+body {
+	font-family: Helvetica, Neue, Arial;
+
+}
+
+h1 {
+	margin-bottom: 50px;
+}
+h3 {
+	margin-bottom: 10px;
+}
+h4 {
+	margin-bottom: 10px;
+}
+
+.srodek {
+  display: flex;
+	justify-content: center;
+  }
+ .zdjecie{
+	
+	display:flex;
+		justify-content: space-around;
+ } 
+.lewa{
+	width: 70%;
+	float: left;
+}
+.tekst{
+	margin: 20px 150px 20px 20px;
+	display:flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.prawa{
+	width: 30%;
+	float: right;
+}
+.logowanie{
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+}
+.zatwierdz{
+	display: flex;
+	justify-content: center	;
+}	
+.kontakt{
+	margin: 100px;
+	display:flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}

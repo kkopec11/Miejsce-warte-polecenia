@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Lista postów</title>
+    <link rel='stylesheet' href='../css/main.css'>
+    <link rel='stylesheet' href='../css/stare.css'>
+
+</head>
+
+<body>
+    <div >
+        <a href="/">Strona główna</a> > 
+        <a href="/profil">Mój profil</a> >
+        <a href="/posty">Moje posty</a>
+    </div>
+    <div class="tytuł">
+		<h1>Moje posty</h1>
+	</div>
+        <h1>Lista moich postów:</h1>
+        <table class="entity-table">
+            <tr>
+                <th>Id</th>
+                <th>Tytuł</th>
+                <th>Ocena</th>
+                <th>Opis</th>
+                <th>Akcje</th>
+            </tr>
+            <% postList.forEach(function(post){ %>
+            <tr>
+                <td><%= post.id %></td>
+                <td><%= post.tytul %></td>
+                <td><%= post.ocena %></td>
+                <td><%= post.opis %></td>
+                <td class="actions">
+                    <a href="/posty/showDetails?post_id=<%= post.id %>">Szczegóły</a>
+                    <a href="/posty/showEditForm?post_id=<%= post.id %>">Edytuj</a>
+                    <a href="/posty/delete?post_id=<%= post.id %>">Usuń</a>
+                </td>
+            </tr>
+            <% }) %>
+            <tr class="table-footer">
+                <td colspan="5"><a href="/posty/dodPost">Nowy post</a></td>
+            </tr>
+        </table>
+        
+    </main>
+    
+</body>
+
+</html>

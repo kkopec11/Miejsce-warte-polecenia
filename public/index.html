@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+	<meta charset="UTF-8">
+	<title>Strona główna</title>
+	<link rel='stylesheet' href='css/main.css'>
+
+  </head>
+  
+  <body>
+
+	<div >
+		<a href="/">Strona główna</a> >
+		<a href="/rejestr">Zarejestruj się</a> >
+		<a href="/rejestr/kontakt">Kontakt</a> >
+		<a href="/profil">Moj profil</a> 
+	</div>
+
+	<div class="srodek">
+	
+		<h1>Miejsce warte polecenia !</h1>
+	
+	</div>
+	
+	<div class="lewa" >
+		<div class="zdjecie">
+			<img src="ZDJ/StronaGlowna2.jpeg" alt="krajobraz" width="300" height="200">
+			<img src="ZDJ/StronaGlowna1.jpg" alt="krajobraz" width="300" height="200">
+		</div>	
+		<div class="tekst" >
+			<h3>Miejsce warte polecenia to strona poświęcona:</h3>
+			<p>
+				Wspolnemu dzieleniu się wrażeniami jak i opowieściami z miejsc które uważamy za warte polecenia
+			</p>
+		</div>
+	</div>
+	<div class="prawa" >
+		<h3>Zaloguj się tutaj</h3>
+		<div class="logowanie bialeTlo">
+			<form id="myForm" novalidate>
+				<p>
+					<label for="login">Login</label>
+					<input type="text" name="Login" id="login" onfocusout="validateLogin()"/>
+					<span class="helper-text"></span>
+				</p>
+				<p>
+					<label for="haslo">Haslo</label>
+					<input type="password" name="Haslo"id="haslo" onfocusout="validateHaslo()"/>
+					<span class="helper-text"></span>
+				</p>		
+				<button type="submit" onclick="window.location.href='/profil';">Zaloguj się</button>
+			</form>
+		</div>
+
+		<h3>Nie masz jeszcze konta?</h3>
+			<label for="zarejest" >Zarejestruj się tutaj: </label>
+			<input type="button" onclick="window.location.href = '/rejestr';" value="CLICK"/>		
+		<div class="kontakt">
+			<label><b>Kontakt: </b></label>
+			<input type="button" onclick="window.location.href = '/rejestr/kontakt';" value="CLICK"/>		
+		</div>
+	</div>
+  </body>
+</html>	
