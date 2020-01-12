@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Post = require('../model/post');
 
+
 router.get("/", (req, res, next) => {
     const postList = Post.list();
     res.render('posty/postList', {postList: postList});
@@ -18,8 +19,9 @@ router.post("/add", (req, res, next) => {
     res.redirect("/posty");
 });
 
-router.get("/dodPost", (req, res, next) => {
-    res.render('posty/mainPost', { pageTitle: "Nowy post", formAction: "add", post: {} });
+router.get("/profil", (req, res, next) => {
+    const postList = Post.list();
+    res.render('posty/mainProfil', {postList: postList});
 });
 
 module.exports.route = router; 

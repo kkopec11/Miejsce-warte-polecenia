@@ -3,9 +3,9 @@ const router = express.Router();
 
 
 router.get("/", (req, res, next) => {
-    res.render('profil/mainProfil');
+    const postList = Post.list();
+    res.render('profil/mainProfil', {postList: postList});
 });
-
 
 
 module.exports.route = router; 

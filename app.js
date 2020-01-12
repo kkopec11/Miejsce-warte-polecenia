@@ -17,8 +17,10 @@ app.use('/posty', userController.route);
 const rejestrController = require('./controller/rejstController');
 app.use('/rejestr', rejestrController.route);
 
-const profilController = require('./controller/profilController');
-app.use('/profil', profilController.route);
+
+
+const miejsceController = require('./controller/miejsceController');
+app.use('/miejsce', miejsceController.route);
 
 app.listen(port, () => {
     console.log(`App is listening at port ${port}`);

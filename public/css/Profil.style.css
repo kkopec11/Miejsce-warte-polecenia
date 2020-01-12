@@ -2,12 +2,19 @@
 	background-color: rgb(155 ,205 ,95);
 	/*! margin: 10px; */
 }
+html, body {
+    margin: 0;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+}
 body{
 	display: grid;
-	grid-template-rows: 130px 80% 50px;
+	grid-template-rows: 130px 35px 80% 50px ;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .gora{
+	border: 6px solid green;
+
 	display: grid;
 	grid-row: 1;
 	display:flex;
@@ -16,43 +23,90 @@ body{
 }
 .przycisk{
 	
-	border: 6px solid #000000;
+	border: 6px solid green;
 	text-align: center;
 	font-size: 25px;
 	
 }
-.tytul{
-	display:flex;
-	justify-content: center;
-	align-items: flex-end;
-
-}
-
-.tabela1{
-	display: grid;
-	grid-row: 2;
-	grid-column: 1/3;
+.tabela{
+	grid-row: 3;
+	grid-column: 1/5;
 	
 	
 }
 
-.tabela2{
-	display: grid;
-	grid-row: 2;
-	grid-column: 3/5;
-
-}
 .nawigacja{
 	display: grid;
-	grid-row: 3;
-		grid-column: 4;
+	grid-row: 4;
+	grid-column: 4;
 
 }
-table{
-margin-right: 5px;
+
+.labelka{
+	grid-row: 2;
+	grid-column: 1/3;
+	font-size: 140%;
 }
 
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
+* {
+    background-color: rgb(155 ,205 ,95);
+
+}
+
+
+
+.entity-table {
+    border-collapse: collapse;
+    /* margin: 0 auto; */
+}
+
+.entity-table th, .entity-table td {
+    border: 1px solid lightgrey;
+    padding: 0.5rem;
+}
+
+.entity-table th {
+    color: white;
+    background-color: green;
+}
+
+.entity-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.entity-table .table-footer {
+    background-color: rgb(112, 173, 112);
+}
+
+.entity-table .actions {
+    text-align: center;
+    width: 20rem;
+}
+
+.entity-table a {
+    color: black;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+    text-decoration: none;
+    margin: 0.3rem;
+    background-color: white;
+}
+
+.entity-table a:hover {
+    color: white;
+    background-color: green;
+}
+
+
+
+
+.mojPrzyc{
+    color: black;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+    text-decoration: none;
+    margin: 0.3rem;
+    background-color: white;
 }

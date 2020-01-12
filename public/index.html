@@ -5,6 +5,7 @@
 	<title>Strona główna</title>
 	<link rel='stylesheet' href='css/main.css'>
 
+
   </head>
   
   <body>
@@ -13,7 +14,7 @@
 		<a href="/">Strona główna</a> >
 		<a href="/rejestr">Zarejestruj się</a> >
 		<a href="/rejestr/kontakt">Kontakt</a> >
-		<a href="/profil">Moj profil</a> 
+		<a href="/posty/profil">Moj profil</a> 
 	</div>
 
 	<div class="srodek">
@@ -48,16 +49,16 @@
 					<input type="password" name="Haslo"id="haslo" onfocusout="validateHaslo()"/>
 					<span class="helper-text"></span>
 				</p>		
-				<button type="submit" onclick="window.location.href='/profil';">Zaloguj się</button>
+				<button class="mojPrzyc" type="submit" onclick="window.location.href='/profil';">Zaloguj się</button>
 			</form>
 		</div>
 
 		<h3>Nie masz jeszcze konta?</h3>
 			<label for="zarejest" >Zarejestruj się tutaj: </label>
-			<input type="button" onclick="window.location.href = '/rejestr';" value="CLICK"/>		
+			<input  class="mojPrzyc" type="button" onclick="window.location.href = '/rejestr';" value="CLICK"/>		
 		<div class="kontakt">
-			<label><b>Kontakt: </b></label>
-			<input type="button" onclick="window.location.href = '/rejestr/kontakt';" value="CLICK"/>		
+			
+			<input class="mojPrzyc" type="button" onclick="window.location.href = '/rejestr/kontakt';" value="KONTAKT"/>		
 		</div>
 	</div>
   </body>
