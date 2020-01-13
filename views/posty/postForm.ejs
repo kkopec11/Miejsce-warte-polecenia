@@ -11,8 +11,11 @@
 
 <body>
     <div >
-        <a href="/">Strona główna</a>
-        <a href="/posty">Posty</a>
+        <a href="/">Strona główna</a> > 
+        <a href="/posty/profil">Mój profil</a> >
+        <a href="/posty">Moje posty</a> >
+        <a href="/miejsce">Wybierz miejsce</a> >
+        <a >Nowy post</a>
     </div>
     
     <div class="form-container">
@@ -24,9 +27,26 @@
             <input id="tytul" name="title" type="text" <%= formAction ? '' : 'readonly' %>
                 value="<%= post.tytul %>"></input>
 
-            <label for="ocena">Ocena:</label>
+            <!--
+                <label for="ocena">Ocena:</label>
             <input id="ocena" name="score" type="text" <%= formAction ? '' : 'readonly' %>
                 value="<%= post.ocena %>"></input>
+            -->
+                
+            <label for="ocena" >Twoja ocena:</label>
+            <select id="ocena" name="score" type="text" <%= formAction ? '' : 'readonly' %>
+                <option ></option>
+                    <option >1</option>
+                    <option >2</option>
+                    <option >3</option>
+                    <option >4</option>
+                    <option >5</option>
+                    <option >6</option>
+                    <option >7</option>
+                    <option >8</option>
+                    <option >9</option>
+                    <option >10</option>
+            value="<%= post.ocena %>"></select>
 
             <label for="opis">Opis:</label>
             <input id="opis" name="desc" type="text" <%= formAction ? '' : 'readonly' %>

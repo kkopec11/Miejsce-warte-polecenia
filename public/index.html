@@ -12,9 +12,10 @@
 
 	<div >
 		<a href="/">Strona główna</a> >
-		<a href="/rejestr">Zarejestruj się</a> >
-		<a href="/rejestr/kontakt">Kontakt</a> >
-		<a href="/posty/profil">Moj profil</a> 
+		<a href="/profil/zapiszProfil">Zarejestruj się</a> >
+		<a href="/posty/profil">Moj profil</a> >
+		<a href="/profil">Lista użytkowników</a> >
+		<a href="/profil/kontakt">Kontakt</a> 
 	</div>
 
 	<div class="srodek">
@@ -38,7 +39,7 @@
 	<div class="prawa" >
 		<h3>Zaloguj się tutaj</h3>
 		<div class="logowanie bialeTlo">
-			<form id="myForm" novalidate>
+			<form id="myForm" action="/" novalidate>
 				<p>
 					<label for="login">Login</label>
 					<input type="text" name="Login" id="login" onfocusout="validateLogin()"/>
@@ -48,17 +49,17 @@
 					<label for="haslo">Haslo</label>
 					<input type="password" name="Haslo"id="haslo" onfocusout="validateHaslo()"/>
 					<span class="helper-text"></span>
-				</p>		
-				<button class="mojPrzyc" type="submit" onclick="window.location.href='/profil';">Zaloguj się</button>
+				</p>	
+				<button class="mojPrzyc" type="submit" onclick="widnow.location.href='/posty/profil';">Zaloguj się</button>			
 			</form>
+			
 		</div>
 
 		<h3>Nie masz jeszcze konta?</h3>
 			<label for="zarejest" >Zarejestruj się tutaj: </label>
-			<input  class="mojPrzyc" type="button" onclick="window.location.href = '/rejestr';" value="CLICK"/>		
-		<div class="kontakt">
-			
-			<input class="mojPrzyc" type="button" onclick="window.location.href = '/rejestr/kontakt';" value="KONTAKT"/>		
+			<input  class="mojPrzyc" type="button" onclick="window.location.href = '/profil/zapiszProfil';" value="CLICK"/>		
+		<div class="kontakt">	
+			<input class="mojPrzyc" type="button" onclick="window.location.href = '/profil/kontakt';" value="KONTAKT"/>		
 		</div>
 	</div>
   </body>

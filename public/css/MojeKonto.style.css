@@ -4,7 +4,7 @@
 body{
 	display: grid;
 	grid-template-columns: 50% 50%;
-	grid-template-rows: 10% 80% 10%;
+	grid-template-rows: 60px 10% 60% 7%;
 
 }
 
@@ -12,7 +12,7 @@ body{
 	margin-left: 20px;
 	display: grid;
 	grid-column: 1;
-	grid-row: 1;
+	grid-row: 2;
 }	
 
 .srodek{
@@ -20,7 +20,7 @@ body{
 	margin-right: 250px;
 	display: grid;
 	grid-column: 1;
-	grid-row: 2;
+	grid-row: 3;
 	
 }
 
@@ -28,38 +28,38 @@ body{
 	margin: 10px;
 	display: grid;
 	grid-column: 1;
-	grid-row: 2;
+	grid-row: 3;
 }	
 
 .nazwisko{
 	margin: 10px;
 	display: grid;
 	grid-column: 1;
-	grid-row: 3;
+	grid-row: 4;
 }
 .plec{
 	margin: 10px;	
 	display: grid;
 	grid-column: 1;
-	grid-row: 4;
+	grid-row: 5;
 }	
 .email{
 	margin: 10px;
 	display: grid;
 	grid-column: 1;
-	grid-row: 5;
+	grid-row: 6;
 }	
 .nick{
 	margin: 10px;
 	display: grid;
 	grid-column: 1;
-	grid-row: 6;
+	grid-row: 7;
 }	
 .opis{
 	margin: 10px;
 	display: grid;
 	grid-column: 1;
-	grid-row: 7;
+	grid-row: 8;
 }			
 .przycisk{
 	
@@ -68,15 +68,16 @@ body{
 	
 	display: grid;
 	grid-column: 2;
-	grid-row: 3;
+	grid-row: 4;
 }
 .zdjecie{
 	display: grid;
 	grid-column: 2;
-	grid-row: 2;
+	grid-row: 3;
 }
 .nawigacja{
-	display: grid;
-	grid-column: 2;
-	
+
+	grid-column: 1;
+	grid-row: 1;
+
 }
