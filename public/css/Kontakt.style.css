@@ -4,10 +4,12 @@
 body{
 	display: grid;
 	grid-template-columns: 50% 50%;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
 }
 h1{
 	margin-left:50px;
-	margin-top:70px;
+	margin-top:90px;
 }
 
 .srodek{
@@ -19,6 +21,7 @@ h1{
 }
 
 .zdjecie{
+	margin-top: 60px;
 	display: grid;
 	grid-column: 2;
 }

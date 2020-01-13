@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset='utf-8'>
-    <title><%= pageTitle %></title>
-    <link rel='stylesheet' href='../css/main.css'>
-    <link rel='stylesheet' href='../css/form.css'>
-    
-</head>
-
-<body>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="../css/newForm.css" />
+    <title>Dodaj miejsce</title>
+  </head>
+  <body>
     <div >
         <a href="/">Strona główna</a> > 
         <a href="/posty/profil">Mój profil</a> >
@@ -17,49 +13,68 @@
         <a href="/miejsce">Wybierz miejsce</a> >
         <a >Nowy post</a>
     </div>
+	
+	<div class="srodek">
+        
+            <h2> <%= pageTitle %></h2>
+            <form action="/posty/<%= formAction %>" method="POST">
+                <input type="hidden" name="post_id" value="<%= post.id %>"></input>
     
-    <div class="form-container">
-        <h2> <%= pageTitle %></h2>
-        <form action="/posty/<%= formAction %>" method="POST">
-            <input type="hidden" name="post_id" value="<%= post.id %>"></input>
-
-            <label for="tytul">Tytuł:</label>
-            <input id="tytul" name="title" type="text" <%= formAction ? '' : 'readonly' %>
-                value="<%= post.tytul %>"></input>
-
-            <!--
+                <p>
+                    <label for="tytul">Tytuł:</label>
+                    <input id="tytul" name="title" type="text" <%= formAction ? '' : 'readonly' %>
+                        value="<%= post.tytul %>"></input>
+        
+                </p>
+               
+                <!--
                 <label for="ocena">Ocena:</label>
-            <input id="ocena" name="score" type="text" <%= formAction ? '' : 'readonly' %>
-                value="<%= post.ocena %>"></input>
-            -->
+                <input id="ocena" name="score" type="text" <%= formAction ? '' : 'readonly' %>
+                    value="<%= post.ocena %>"></input>
+                -->
                 
-            <label for="ocena" >Twoja ocena:</label>
-            <select id="ocena" name="score" type="text" <%= formAction ? '' : 'readonly' %>
-                <option ></option>
-                    <option >1</option>
-                    <option >2</option>
-                    <option >3</option>
-                    <option >4</option>
-                    <option >5</option>
-                    <option >6</option>
-                    <option >7</option>
-                    <option >8</option>
-                    <option >9</option>
-                    <option >10</option>
-            value="<%= post.ocena %>"></select>
+                <p>
+                    <label for="ocena" >Twoja ocena:</label>
+                    <br>
+                    <select id="ocena" name="score" type="text" <%= formAction ? '' : 'readonly' %>
+                        <option ></option>
+                            <option >1</option>
+                            <option >2</option>
+                            <option >3</option>
+                            <option >4</option>
+                            <option >5</option>
+                            <option >6</option>
+                            <option >7</option>
+                            <option >8</option>
+                            <option >9</option>
+                            <option >10</option>
+                    value="<%= post.ocena %>"></select>
+                </p>
+               
+               
+                <p>
 
-            <label for="opis">Opis:</label>
-            <input id="opis" name="desc" type="text" <%= formAction ? '' : 'readonly' %>
-                value="<%= post.opis %>"></input>            
+                    <label for="opis">Opis:</label>
+                    <input id="opis" name="desc" type="text" <%= formAction ? '' : 'readonly' %>
+                        value="<%= post.opis %>"></input>   
+                </p>
+                    <div class="form-actions-container">
+                        <% if( formAction ) { %>
+                        <input type="submit" value="Zapisz" class="action-btn"></input>
+                        <% } %>
+                        <a href="/posty" class="action-btn">Anuluj</a>
+                    </div>
+                    
                 
-            <div class="form-actions-container">
-                <% if( formAction ) { %>
-                <input type="submit" value="Zapisz" class="action-btn"></input>
-                <% } %>
-                <a href="/posty" class="action-btn">Anuluj</a>
-            </div>
-        </form>
-    </div>
-</body>
+            </form>
+        </div>
+	</div>
+	<div class="zdjecie">
+			<img src="../ZDJ/dodajPost.jpg" alt="krajobraz" width="600" height="400"  >
+	</div>
+	
 
-</html>
+	<script src="JS/DodajMiejsce.js"></script>
+
+  </body>
+</html>	
