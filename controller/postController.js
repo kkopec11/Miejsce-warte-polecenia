@@ -24,4 +24,14 @@ router.get("/profil", (req, res, next) => {
     res.render('posty/mainProfil', {postList: postList});
 });
 
+router.get("/usun", (req, res, next) => {
+    Post.delete(req.query.post_id);
+    res.redirect("/posty");
+});
+
+router.get("/szczegoly", (req, res, next) => {
+    const postList = Post.list();
+    res.render('szczegPostu', {postId: req.query.post_id, postList: postList})
+});
+
 module.exports.route = router; 

@@ -32,9 +32,9 @@
                 <td><%= post.ocena %></td>
                 <td><%= post.opis %></td>
                 <td class="actions">
-                    <a href="/posty/showDetails?post_id=<%= post.id %>">Szczegóły</a>
+                    <a href="/posty/szczegoly?post_id=<%= post.id %>">Szczegóły</a>
                     <a href="/posty/showEditForm?post_id=<%= post.id %>">Edytuj</a>
-                    <a href="/posty/delete?post_id=<%= post.id %>">Usuń</a>
+                    <a href="/posty/usun?post_id=<%= post.id %>">Usuń</a>
                 </td>
             </tr>
             <% }) %>

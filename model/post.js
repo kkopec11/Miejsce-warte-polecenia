@@ -31,7 +31,8 @@ class Post {
     }
     //usuwanie obiektu po id
     static delete(id) {
-        //FIXME
+        const index = postExtent.findIndex(x => x.id === id)
+        return postExtent.splice(index,1)   
     } 
     //pobieranie obiektu do widoku szczegółów
     //może być potrzebne pobranie dodatkowych danych

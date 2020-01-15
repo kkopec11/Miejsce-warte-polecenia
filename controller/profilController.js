@@ -27,4 +27,14 @@ router.get("/mojekonto", (req, res, next) => {
     res.render('profil/mojeKonto');
 });
 
+router.get("/usun", (req, res, next) => {
+    Profil.delete(req.query.profil_id);
+    res.redirect("/profil");
+});
+
+router.get("/szczegoly", (req, res, next) => {
+    const profilList = Profil.list();
+    res.render('szczegKonta', {profilId: req.query.profil_id, profilList: profilList})
+});
+
 module.exports.route = router; 
