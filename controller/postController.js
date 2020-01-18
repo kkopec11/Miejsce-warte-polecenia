@@ -34,4 +34,15 @@ router.get("/szczegoly", (req, res, next) => {
     res.render('szczegPostu', {postId: req.query.post_id, postList: postList})
 });
 
+router.get("/edycja", (req, res, next) => {
+    const postList = Post.list();
+    res.render('edycjaPostu', {postId: req.query.post_id, postList: postList});
+});
+
+router.post("/edytujZapisz", (req, res, next) => {
+    const newPost =  new Post(req.body.title, req.body.score, req.body.desc, req.body.idPost );
+    Post.edit(newPost);
+    res.redirect("/posty");
+});
+
 module.exports.route = router; 

@@ -27,19 +27,17 @@ class Post {
     }
     //edycja obiektu
     static edit(post) {
-        //FIXME
+        const index = postExtent.findIndex(x => x.id == post.id);
+        postExtent[index] = post;
+        return post;
     }
     //usuwanie obiektu po id
     static delete(id) {
-        const index = postExtent.findIndex(x => x.id === id)
+        const index = postExtent.findIndex(x => x.id == id)
         return postExtent.splice(index,1)   
     } 
-    //pobieranie obiektu do widoku szczegółów
-    //może być potrzebne pobranie dodatkowych danych
-    //np. przez złączenia JOIN w relacyjnej bazie danych
-    static details(id) {
-        //FIXME
-    }
+   
+    
     //metoda resetuje stan bazy i dodaje rekordy testowe
     //przydatna do testów
     static initData() {

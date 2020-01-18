@@ -37,4 +37,15 @@ router.get("/szczegoly", (req, res, next) => {
     res.render('szczegKonta', {profilId: req.query.profil_id, profilList: profilList})
 });
 
+router.get("/edycja", (req, res, next) => {
+    const profilList = Profil.list();
+    res.render('edycjaKonta', {profilId: req.query.profil_id, profilList: profilList});
+});
+
+router.post("/edytujZapisz", (req, res, next) => {
+    const newProfill =  new Profil(req.body.name, req.body.surname, req.body.log, req.body.password, req.body.mail, req.body.desc, req.body.idProfil);
+    Profil.edit(newProfill);
+    res.redirect("/profil");
+});
+
 module.exports.route = router; 
