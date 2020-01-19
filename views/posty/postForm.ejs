@@ -21,6 +21,18 @@
                 <input type="hidden" name="post_id" value="<%= post.id %>"></input>
     
                 <p>
+                    <label for="idAutora">Wpisz swoje ID :</label>
+                    <input id="idAutora" name="idAut" type="text" <%= formAction ? '' : 'readonly' %>
+                        value="<%= post.idAutora %>"></input>
+        
+                </p>
+                <p>
+                    <label for="idMiejscaPostu">Wpisz ID miejsca wybranego poprzednio:</label>
+                    <input id="idMiejscaPostu" name="idMjscPst" type="text" <%= formAction ? '' : 'readonly' %>
+                        value="<%= post.idMiejscaPostu %>"></input>
+        
+                </p>
+                <p>
                     <label for="tytul">Tytuł:</label>
                     <input id="tytul" name="title" type="text" <%= formAction ? '' : 'readonly' %>
                         value="<%= post.tytul %>"></input>

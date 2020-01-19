@@ -14,7 +14,7 @@ router.get("/zapiszPost", (req, res, next) => {
 });
 
 router.post("/add", (req, res, next) => {
-    const newPost = new Post(req.body.title, req.body.score, req.body.desc);
+    const newPost = new Post(req.body.title, req.body.score, req.body.desc, req.body.idAut, req.body.idMjscPst);
     Post.add(newPost);
     res.redirect("/posty");
 });
@@ -31,16 +31,16 @@ router.get("/usun", (req, res, next) => {
 
 router.get("/szczegoly", (req, res, next) => {
     const postList = Post.list();
-    res.render('szczegPostu', {postId: req.query.post_id, postList: postList})
+    res.render('posty/szczegPostu', {postId: req.query.post_id, postList: postList})
 });
 
 router.get("/edycja", (req, res, next) => {
     const postList = Post.list();
-    res.render('edycjaPostu', {postId: req.query.post_id, postList: postList});
+    res.render('posty/edycjaPostu', {postId: req.query.post_id, postList: postList});
 });
 
 router.post("/edytujZapisz", (req, res, next) => {
-    const newPost =  new Post(req.body.title, req.body.score, req.body.desc, req.body.idPost );
+    const newPost =  new Post(req.body.title, req.body.score, req.body.desc, req.body.idAut, req.body.idMjscPst, req.body.idPost );
     Post.edit(newPost);
     res.redirect("/posty");
 });

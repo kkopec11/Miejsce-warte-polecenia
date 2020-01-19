@@ -19,7 +19,9 @@
         <h1>Lista moich postów:</h1>
         <table class="entity-table">
             <tr>
-                <th>Id</th>
+                <th>Id postu</th>
+                <th>Id autora</th>
+                <th>Id miejsca</th>
                 <th>Tytuł</th>
                 <th>Ocena</th>
                 <th>Opis</th>
@@ -28,6 +30,8 @@
             <% postList.forEach(function(post){ %>
             <tr>
                 <td><%= post.id %></td>
+                <td><%= post.idAutora %></td>
+                <td><%= post.idMiejscaPostu %></td>
                 <td><%= post.tytul %></td>
                 <td><%= post.ocena %></td>
                 <td><%= post.opis %></td>
@@ -39,7 +43,7 @@
             </tr>
             <% }) %>
             <tr class="table-footer">
-                <td colspan="5"><a href="/miejsce">Nowy post</a></td>
+                <td colspan="7"><a href="/miejsce">Nowy post</a></td>
             </tr>
         </table>
         

@@ -5,11 +5,13 @@ const postExtent = [];
 
 class Post {
     //parametr id jest na końcu, bo jest opcjonalny
-    constructor(tytul, ocena, opis, id) {
+    constructor(tytul, ocena, opis, idAutora, idMiejscaPostu, id) {
         this.id = id;
         this.tytul = tytul;
         this.ocena = ocena;
         this.opis = opis;
+        this.idAutora = idAutora;
+        this.idMiejscaPostu = idMiejscaPostu;
     }
 
     //dodawanie obiektu do bazy
@@ -45,7 +47,10 @@ class Post {
         postExtent.splice(0, postExtent.length);
         //resetujemy licznik id
         nextId = 1;
-        Post.add(new Post('Daleka wyprawa', '8', 'Bla bla bla...'));
+        Post.add(new Post('Daleka wyprawa', '8', 'Bla bla bla...', '1', '2'));
+        Post.add(new Post('Krótka podróż', '3', 'Bla bla bla...', '2', '1'));
+        Post.add(new Post('Ciekawa wycieczka', '6', 'Bla bla bla...', '3', '4'));
+
     }
 }
 

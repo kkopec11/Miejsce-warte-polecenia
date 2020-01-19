@@ -34,12 +34,12 @@ router.get("/usun", (req, res, next) => {
 
 router.get("/szczegoly", (req, res, next) => {
     const profilList = Profil.list();
-    res.render('szczegKonta', {profilId: req.query.profil_id, profilList: profilList})
+    res.render('profil/szczegKonta', {profilId: req.query.profil_id, profilList: profilList})
 });
 
 router.get("/edycja", (req, res, next) => {
     const profilList = Profil.list();
-    res.render('edycjaKonta', {profilId: req.query.profil_id, profilList: profilList});
+    res.render('profil/edycjaKonta', {profilId: req.query.profil_id, profilList: profilList});
 });
 
 router.post("/edytujZapisz", (req, res, next) => {
