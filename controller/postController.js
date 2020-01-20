@@ -5,8 +5,15 @@ const Post = require('../model/post');
 
 
 router.get("/", (req, res, next) => {
-    const postList = Post.list();
-    res.render('posty/postList', {postList: postList});
+    Post.list()
+      .then( ([postList, metadata]) => {
+        //wywołane w momencie poprawnego wykonania instrukcji sql i zwrócenia wyniku
+        res.render('posty/postList', {postList: postList});
+      })
+      .catch(err => {
+        //błąd komunikacji z bazą danych
+        console.log(err);
+      });
 });
 
 router.get("/zapiszPost", (req, res, next) => {
@@ -15,13 +22,26 @@ router.get("/zapiszPost", (req, res, next) => {
 
 router.post("/add", (req, res, next) => {
     const newPost = new Post(req.body.title, req.body.score, req.body.desc, req.body.idAut, req.body.idMjscPst);
-    Post.add(newPost);
-    res.redirect("/posty");
+    Post.add(newPost)
+      .then(() => {
+        res.redirect("/posty");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+      
 });
 
 router.get("/profil", (req, res, next) => {
-    const postList = Post.list();
-    res.render('posty/mainProfil', {postList: postList});
+      Post.list()
+      .then(([postList, metadata]) => {
+        res.render('posty/mainProfil', {postList: postList});
+
+      }).catch(err => {
+      console.log(err);
+  });
+
+
 });
 
 router.get("/usun", (req, res, next) => {
@@ -30,13 +50,21 @@ router.get("/usun", (req, res, next) => {
 });
 
 router.get("/szczegoly", (req, res, next) => {
-    const postList = Post.list();
-    res.render('posty/szczegPostu', {postId: req.query.post_id, postList: postList})
+    Post.getListFromId(req.query.post_id).then(
+      ([postList, metadata]) => {
+          res.render('posty/szczegPostu', {postId: req.query.post_id, postList: postList});
+      }).catch(err => {
+      console.log(err);
+  });
 });
 
 router.get("/edycja", (req, res, next) => {
-    const postList = Post.list();
-    res.render('posty/edycjaPostu', {postId: req.query.post_id, postList: postList});
+    Post.getListFromIdEdyt(req.query.profil_id).then(
+      ([profilList, metadata]) => {
+        res.render('profil/edycjaPostu', {profilId: req.query.profil_id, profilList: profilList});
+      }).catch(err => {
+      console.log(err);
+  });
 });
 
 router.post("/edytujZapisz", (req, res, next) => {

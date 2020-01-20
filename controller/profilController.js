@@ -5,8 +5,16 @@ const Profil = require('../model/profil');
 
 
 router.get("/", (req, res, next) => {
-    const profilList = Profil.list();
-    res.render('profil/profilList', {profilList: profilList});
+    Profil.list()
+      .then( ([profilList, metadata]) => {
+        //wywołane w momencie poprawnego wykonania instrukcji sql i zwrócenia wyniku
+        res.render('profil/profilList', {profilList: profilList});
+      })
+      .catch(err => {
+        //błąd komunikacji z bazą danych
+        console.log(err);
+      });
+    
 });
 
 router.get("/zapiszProfil", (req, res, next) => {
@@ -15,16 +23,14 @@ router.get("/zapiszProfil", (req, res, next) => {
 
 router.post("/add", (req, res, next) => {
     const newProfil = new Profil(req.body.name, req.body.surname, req.body.log, req.body.password, req.body.mail, req.body.desc);
-    Profil.add(newProfil);
-    res.redirect("/");
-});
-
-router.get("/kontakt", (req, res, next) => {
-    res.render('profil/kontaktInfo');
-});
-
-router.get("/mojekonto", (req, res, next) => {
-    res.render('profil/mojeKonto');
+    Profil.add(newProfil)
+      .then(() => {
+        res.redirect("/profil");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    
 });
 
 router.get("/usun", (req, res, next) => {
@@ -33,19 +39,36 @@ router.get("/usun", (req, res, next) => {
 });
 
 router.get("/szczegoly", (req, res, next) => {
-    const profilList = Profil.list();
-    res.render('profil/szczegKonta', {profilId: req.query.profil_id, profilList: profilList})
+    Profil.getListFromId(req.query.profil_id).then(
+      ([profilList, metadata]) => {
+          res.render('profil/szczegKonta', {profilId: req.query.profil_id, profilList: profilList});
+      }).catch(err => {
+      console.log(err);
+  });
 });
 
-router.get("/edycja", (req, res, next) => {
-    const profilList = Profil.list();
-    res.render('profil/edycjaKonta', {profilId: req.query.profil_id, profilList: profilList});
-});
 
 router.post("/edytujZapisz", (req, res, next) => {
     const newProfill =  new Profil(req.body.name, req.body.surname, req.body.log, req.body.password, req.body.mail, req.body.desc, req.body.idProfil);
     Profil.edit(newProfill);
     res.redirect("/profil");
+});
+
+router.get("/mojekonto", (req, res, next) => {
+    res.render('profil/mojeKonto');
+});
+
+router.get("/edycja", (req, res, next) => {
+    Profil.getListFromId(req.query.profil_id).then(
+      ([profilList, metadata]) => {
+        res.render('profil/edycjaKonta', {profilId: req.query.profil_id, profilList: profilList});
+      }).catch(err => {
+      console.log(err);
+  });
+});
+
+router.get("/kontakt", (req, res, next) => {
+    res.render('profil/kontaktInfo');
 });
 
 module.exports.route = router; 

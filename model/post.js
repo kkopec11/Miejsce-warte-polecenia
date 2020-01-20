@@ -1,59 +1,56 @@
-//licznik id
-let nextId = 1;
-//ekstensja klasy (wszystkie obiekty)
-const postExtent = [];
+const db = require('../db/mysql');
 
 class Post {
     //parametr id jest na końcu, bo jest opcjonalny
-    constructor(tytul, ocena, opis, idAutora, idMiejscaPostu, id) {
-        this.id = id;
+    constructor(tytul, ocena, opis, Profil_idProfil, Miejsce_idMiejsca, idPost) {
+        this.idPost = idPost;
         this.tytul = tytul;
         this.ocena = ocena;
         this.opis = opis;
-        this.idAutora = idAutora;
-        this.idMiejscaPostu = idMiejscaPostu;
+        this.Profil_idProfil = Profil_idProfil;
+        this.Miejsce_idMiejsca = Miejsce_idMiejsca;
     }
 
-    //dodawanie obiektu do bazy
     static add(post) {
-        post.id = nextId++;
-        postExtent.push(post);
-        return post;
+        return db.execute('SELECT MAX(`idPost`) a FROM `mwpDb`.`Post`').then(([max, metadata]) => {
+            post.idPost = max[0].a + 1
+            db.execute(
+                'insert into `mwpDb`.`Post` (idPost, tytul, ocena, opis, Profil_idProfil, Miejsce_idMiejsca) values (?, ?, ?, ?, ?, ?)',
+                [post.idPost, post.tytul, post.ocena, post.opis, post.Profil_idProfil, post.Miejsce_idMiejsca]
+            );
+        });    
     }
-    //pobranie listy obiektów
-    //metoda nie powinna pobierać nadmiarowych danych
-    //(np. przez złączenia JOIN w relacyjnej bazie danych)
-    //które nie będą wyświetlane na liście
-    static list() {
-        return postExtent;
-    }
-    //edycja obiektu
-    static edit(post) {
-        const index = postExtent.findIndex(x => x.id == post.id);
-        postExtent[index] = post;
-        return post;
-    }
-    //usuwanie obiektu po id
-    static delete(id) {
-        const index = postExtent.findIndex(x => x.id == id)
-        return postExtent.splice(index,1)   
-    } 
-   
     
-    //metoda resetuje stan bazy i dodaje rekordy testowe
-    //przydatna do testów
-    static initData() {
-        //usuwamy zawartość tablicy
-        postExtent.splice(0, postExtent.length);
-        //resetujemy licznik id
-        nextId = 1;
-        Post.add(new Post('Daleka wyprawa', '8', 'Bla bla bla...', '1', '2'));
-        Post.add(new Post('Krótka podróż', '3', 'Bla bla bla...', '2', '1'));
-        Post.add(new Post('Ciekawa wycieczka', '6', 'Bla bla bla...', '3', '4'));
+    static list() {
+        return db.execute('select * from Post');
+    }
+
+    static edit(post) {
+        return  db.execute('UPDATE `mwpDb`.`Post` SET `tytul` = ? , `ocena` = ?, `opis` = ?, `Profil_idProfil` =  ? ,`Miejsce_idMiejsca` =  ? WHERE `idPost` = '+ profil.idPost,
+        [post.idPost, post.tytul, post.ocena, post.opis, post.Profil_idProfil, post.Miejsce_idMiejsca]
+        );  
+    }
+
+    static getListFromId(id){
+        return db.execute('select * from Post WHERE `idPost` ='+ id );
+    }
+    static getListFromIdEdyt(id){
+        return db.execute('SELECT * FROM `mwpDb`.`Post` INNER JOIN `mwpDb`.`Profil` ON `mwpDb`.`Profil`.`idProfil` = `mwpDb`.`Post`.`Profil_idProfil` INNER JOIN `mwpDb`.`Miejsce` ON `mwpDb`.`Miejsce`.`idMiejsca` = `mwpDb`.`Post`.`Miejsce_idMiejsca` WHERE `mwpDb`.`Profil`.`idProfil` = ? and `mwpDb`.`Miejsce`.`idMiejsca` =  ?', [idProfil, idMiejsca]);
 
     }
-}
 
-Post.initData();
+    static delete(id) {
+    return db.execute('DELETE FROM `mwpDb`.`Post` WHERE `idPost`= ' + id);
+    } 
+
+    static findindex(){
+        return db.execute('SELECT MAX(`idPost`) a FROM `mwpDb`.`Post`');
+    }
+
+    static getTable(){
+        return db.execute('select * from Post');
+    }
+    
+}
 
 module.exports = Post;
