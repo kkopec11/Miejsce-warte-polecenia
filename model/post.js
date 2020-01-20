@@ -34,7 +34,7 @@ class Post {
     static getListFromId(id){
         return db.execute('select * from Post WHERE `idPost` ='+ id );
     }
-    static getListFromIdEdyt(id){
+    static getListFromIdEdyt(idProfil, idMiejsca){
         return db.execute('SELECT * FROM `mwpDb`.`Post` INNER JOIN `mwpDb`.`Profil` ON `mwpDb`.`Profil`.`idProfil` = `mwpDb`.`Post`.`Profil_idProfil` INNER JOIN `mwpDb`.`Miejsce` ON `mwpDb`.`Miejsce`.`idMiejsca` = `mwpDb`.`Post`.`Miejsce_idMiejsca` WHERE `mwpDb`.`Profil`.`idProfil` = ? and `mwpDb`.`Miejsce`.`idMiejsca` =  ?', [idProfil, idMiejsca]);
 
     }
