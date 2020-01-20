@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="../css/MojeKonto.style.css" />
+
+    <title>Szczegłóły konta</title>
+  </head>
+	
+  <body>
+
+    <div class="nawigacja">
+        <p><a href="/">Strona główna</a> > 
+            <a href="/profil" >Lista profili</a> > 
+            Edycja konta</p>
+
+    </div>
+		<div class="zarej">
+		    <h1>Edycja konta<h1>
+		<br>
+        </div>
+		<div class="srodek" > 
+
+            <form action="/profil/edytujZapisz" method="POST">
+				<label for="idProfil">ID:</label>
+                <input id="idProfil" name="idProfil" type="text" value="<%= profilId %>" readonly></input>
+
+                <p>
+                    <label for="imie">Imie:</label>
+                    <input id="imie" name="name" type="text" value="<%= profilList[0].imie %>"></input>
+        
+                </p>  
+                <p>
+                    <label for="nazwisko">Nazwisko:</label>
+                    <input id="nazwisko" name="surname" type="text" value="<%= profilList[0].nazwisko %>"></input>                 
+                </p>
+                <p>
+                    <label for="login">Login:</label>
+                    <input id="login" name="log" type="text" value="<%= profilList[0].loginUzytk %>"></input>
+                </p>
+                <p>
+                    <label for="haslo">Hasło:</label>
+                    <input id="haslo" name="password" type="text" value="<%= profilList[0].haslo %>"></input>
+                </p>
+                <p>
+                    <label for="email">Adres email:</label>
+                    <input id="email" name="mail" type="text"value="<%= profilList[0].email %>"></input>
+                </p>
+                <p>
+                    <label for="opis">Opis:</label>
+                    <input id="opis" name="desc" type="text" value="<%= profilList[0].opis %>"></input>
+                </p>            
+                <div class="form-actions-container">
+                    <input type="submit" value="Zapisz" class="action-btn"></input>
+                    <a href="/profil" class="action-btn">Anuluj</a>
+                </div>
+            </form> 	
+		</div>
+		
+		<div class="zdjecie">
+			<img src="../ZDJ/MojeKonto.jpg" alt="krajobraz" width="600" height="400" >
+		</div>
+		
+  </body>
+</html>	
+
+
+	

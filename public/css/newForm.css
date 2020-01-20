@@ -1,0 +1,74 @@
+* {
+	background-color: rgb(155 ,205 ,95);
+}
+body{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+}
+h1{
+	display:flex;
+	justify-content: center;
+}
+.errors-input {
+    border: 3px solid #e74c3c;
+}
+
+.errors-text {
+    font-size: 0.85em;
+}
+
+.errors-text {
+    color: #e74c3c;
+}
+.srodek{
+	font-size: 23px;
+	margin:2px;
+	display: grid;
+	grid-column: 1/2;
+	display:flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.zdjecie{
+	display:flex;
+	justify-content: center;
+	display: grid;
+	grid-column: 2/3;
+	margin-top: 100px;
+
+}
+
+.zapisz{
+	display:flex;
+	justify-content: center;
+	display: grid;
+	grid-column: 2/3;
+
+	
+}
+
+.action-btn {
+    width: 150px;
+    background-color: #4CAF50;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+
+    color: black;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+    text-decoration: none;
+    margin: 0.3rem;
+    background-color: white;
+}
+input[type=text], select {
+    padding: 12px 210px;
+    border: 2px solid #4CAF50;
+	border-radius: 4px;
+	margin-right: 50px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="../css/MojeKonto.style.css" />
+
+    <title>Edycja miejsca</title>
+  </head>
+	
+  <body>
+
+    <div class="nawigacja">
+        <p><a href="/">Strona główna</a> > 
+            <a href="/posty/profil">Mój profil</a> >
+            <a href="/miejsce/listaMiejsc">Lista miejsc</a> >
+            Edycja miejsca</p>
+
+    </div>
+		<div class="zarej">
+		    <h1>Edycja miejsca<h1>
+		<br>
+        </div>
+		<div class="srodek" > 
+            <form action="/miejsce/edytujZapisz" method="POST">
+				<label for="idMiejsca">ID:</label>
+                <input id="idMiejsca" name="miejsceId" type="text" value="<%= miejsceId %>" readonly></input>
+    
+                <p>
+                    <label for="tytul">Tytuł:</label>
+                    <input id="tytul" name="title" type="text" value="<%= miejsceList[0].tytul %>"></input>
+        
+                </p>  
+                <p>
+                    <label for="szerGeog">Szerokość geograficzna:</label>
+                    <input id="szerGeog" name="szGeog" type="text" value="<%= miejsceList[0].szerokoscGeog %>"></input>                 
+                </p>
+                <p>
+                    <label for="dlugGeog">Długość geograficzna:</label>
+                    <input id="dlugGeog" name="dlGeog" type="text" value="<%= miejsceList[0].dlugoscGeog %>"></input>
+                </p>
+                <p>
+                    <label for="opis">Opis:</label>
+                    <input id="opis" name="desc" type="text" value="<%= miejsceList[0].opis %>"></input>
+                </p>            
+                <div class="form-actions-container">
+                    <input type="submit" value="Zapisz" class="action-btn"></input>
+                    <a href="/miejsce/listaMiejsc" class="action-btn">Anuluj</a>
+                </div>
+            </form> 	
+		</div>
+		
+		<div class="zdjecie">
+			<img src="../ZDJ/MojeKonto.jpg" alt="krajobraz" width="600" height="400" >
+		</div>
+		
+  </body>
+</html>	
+
+
+	

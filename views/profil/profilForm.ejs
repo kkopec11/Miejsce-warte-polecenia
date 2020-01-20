@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="../css/newForm.css" />
+    <title>Dodaj miejsce</title>
+  </head>
+  <body>
+    <div class="nawigacja">
+        <a href="/">Strona główna</a> >
+        <a >Zarejestruj się</a> 
+    
+    </div>
+	
+	<div class="srodek">
+        
+            <h2> <%= pageTitle %></h2>
+            <form action="/profil/<%= formAction %>" method="POST">
+                <input type="hidden" name="profil_id" value="<%= profil.idProfil %>"></input>
+    
+                <p>
+                    <label for="imie">Imie:</label>
+                    <input id="imie" name="name" type="text" <%= formAction ? '' : 'readonly' %>
+                        value="<%= profil.imie %>"></input>
+        
+                </p>
+                
+                <p>
+                    <label for="nazwisko">Nazwisko:</label>
+                    <input id="nazwisko" name="surname" type="text" <%= formAction ? '' : 'readonly' %>
+                        value="<%= profil.nazwisko %>"></input>
+                        
+                </p>
+                
+                <p>
+                    <label for="loginUzytk">Login:</label>
+                    <input id="loginUzytk" name="log" type="text" <%= formAction ? '' : 'readonly' %>
+                    value="<%= profil.loginUzytk %>"></input>
+    
+                </p>
+                <p>
+                    <label for="haslo">Hasło:</label>
+                    <input id="haslo" name="password" type="text" <%= formAction ? '' : 'readonly' %>
+                    value="<%= profil.haslo %>"></input>      
+    
+                </p>
+                <p>
+                    <label for="email">Adres email:</label>
+                    <input id="email" name="mail" type="text" <%= formAction ? '' : 'readonly' %>
+                    value="<%= profil.email %>"></input>
+    
+                </p>
+                <p>
+                    <label for="opis">Opis:</label>
+                    <input id="opis" name="desc" type="text" <%= formAction ? '' : 'readonly' %>
+                    value="<%= profil.opis %>"></input>    
+                </p>        
+                    
+                <div class="form-actions-container">
+                    <% if( formAction ) { %>
+                    <input type="submit" value="Zapisz" class="action-btn"></input>
+                    <% } %>
+                    <a href="/" class="action-btn">Anuluj</a>
+                </div>
+            </form>
+	</div>
+	<div class="zdjecie">
+			<img src="../ZDJ/dodajProfil.jpg" alt="krajobraz" width="600" height="400" >
+	</div>
+	
+
+	<script src="JS/DodajMiejsce.js"></script>
+
+  </body>
+</html>	
+
+
+	

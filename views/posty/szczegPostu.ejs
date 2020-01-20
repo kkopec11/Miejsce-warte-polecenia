@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8">
+	 <link rel="stylesheet" href="../css/MojeKonto.style.css" />
+    <title>Szczegłóły postu</title>
+  </head>
+	
+  <body>
+    <div class="nawigacja">
+        <p><a href="/">Strona główna</a> > 
+			<a href="/posty/profil" >Lista wszystkich postów</a> > 
+			<a href="/posty" >Lista moich postów</a> > 
+            Szczegóły postu</p>
+
+    </div>
+		<div class="zarej">
+		<h1>Szczegłóły postu<h1>
+		<br>
+		</div>
+		  <div class="srodek " > 
+			  	<p  class="obramPole">
+					<label>Id:</label>
+					<label><%=postId%></label>
+				</p>
+				<p class="obramPole">
+					<label>Id autora:</label>
+					<label><%= postList[0].Profil_idProfil%></label>
+				</p>
+				<p class="obramPole">
+					<label>Id miejsca:</label>
+					<label><%= postList[0].Miejsce_idMiejsca%></label>
+				</p>
+				<p class="obramPole">
+					<label>Ocena:</label>	
+					<label><%= postList[0].ocena%></label>
+				</p>
+				<p class="obramPole">
+					<label>Opis:</label>
+					<label><%= postList[0].opis%></label>
+				</p>
+
+
+				<!--
+					<textarea name="duzy_teks" id="duzy_teks" rows="4" cols="50"> </textarea>
+				-->		
+		
+		</div>
+		
+		<div class="zdjecie">
+			<img src="../ZDJ/Post.jpg" alt="krajobraz" width="600" height="400" >
+		</div>
+		
+  </body>
+</html>	
+
+
+	

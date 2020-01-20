@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="../css/newForm.css" />
+    <title>Dodaj miejsce</title>
+  </head>
+  <body>
+    <div class="nawigacja">
+        <p><a href="/">Strona główna</a> > 
+            <a href="/posty/profil" >Mój profil</a> > 
+            <a href="/miejsce" > Dodaj post</a> > 
+            Dodaj miejsce</p>
+	</div>
+	
+	<div class="srodek">
+        
+        <form action="/miejsce/<%= formAction %>" method="POST">
+            <div>
+                <h3>Dodaj nowe miejsce !</h3>
+            </div>
+            <input type="hidden" name="miejsce_id" value="<%= miejsce.idMiejsca %>"></input>
+
+			<p>
+                <label for="tytul">Tytuł:</label>
+                <input id="tytul" name="title" type="text" <%= formAction ? '' : 'readonly' %>
+                    value="<%= miejsce.tytul %>"></input>		
+			</p>
+			<p>
+                <label for="szerGeog">Szerokość geograficzna:</label>
+                <input id="szerGeog" name="szGeog" type="text" <%= formAction ? '' : 'readonly' %>
+                    value="<%= miejsce.szerokoscGeog %>"></input>
+			</p>
+	
+			<p>
+				<label for="dlugGeog">Długość geograficzna:<label>
+                    <input id="dlugGeog" name="dlGeog" type="text" <%= formAction ? '' : 'readonly' %>
+                        value="<%= miejsce.dlugoscGeog %>"></input>
+	
+			</p>
+			<p>
+                <label for="opis">Opis:</label>
+                <input id="opis" name="desc" type="text" <%= formAction ? '' : 'readonly' %>
+                    value="<%= miejsce.opis %>"></input>       
+			</p>
+
+		  
+		<div  >
+            <% if( formAction ) { %>
+                <input type="submit" value="Zapisz" class="action-btn"></input>
+                <% } %>
+                <a href="/miejsce" class="action-btn">Anuluj</a>
+	</div>
+	</form>
+	</div>
+	<div class="zdjecie">
+			<img src="../ZDJ/DodajMiejsce.jpeg" alt="krajobraz" >
+	</div>
+	
+
+	<script src="JS/DodajMiejsce.js"></script>
+
+  </body>
+</html>	
+
+
+	

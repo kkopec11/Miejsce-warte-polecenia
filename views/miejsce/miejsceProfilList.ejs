@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8">
+   <link rel='stylesheet' href='../css/main.css'>
+    <title>Dodaj post</title>
+  </head>
+  <body>
+  <div >
+      <a href="/">Strona główna</a> > 
+      <a href="/posty/profil">Mój profil</a> >
+      <a >Moje posty</a>
+  </div>
+	<div class="tytuł">
+		<h1>Moje miejsca</h1>
+	</div>
+        <h1>Lista moich miejsc:</h1>
+        <table class="entity-table">
+            <tr>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>Szerokość geograficzna</th>
+                <th>Długość geograficzna</th>
+                <th>Opis</th>
+                <th>Akcje</th>
+            </tr>
+            <% miejsceList.forEach(function(miejsce){ %>
+            <tr>
+                <td><%= miejsce.idMiejsca %></td>
+                <td><%= miejsce.tytul %></td>
+                <td><%= miejsce.szerokoscGeog %></td>
+                <td><%= miejsce.dlugoscGeog %></td>
+                <td><%= miejsce.opis %></td>
+                <td class="actions">
+                    <a href="/miejsce/szczegoly?miejsce_id=<%= miejsce.idMiejsca %>">Szczegóły</a>
+                    <a href="/miejsce/edycja?miejsce_id=<%= miejsce.idMiejsca %>">Edytuj</a>
+                    <a href="/miejsce/usun?miejsce_id=<%= miejsce.idMiejsca %>">Usuń</a>
+                </td>
+            </tr>
+            <% }) %>
+            <tr class="table-footer">
+              <td colspan="6"><a href="/miejsce/zapiszMiejsce">Nowe miejsce</a></td>
+          </tr>
+        </table> 
+      </main>
+  </body>
+  
+  </html>                

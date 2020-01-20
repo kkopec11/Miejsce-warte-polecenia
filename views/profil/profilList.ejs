@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Lista profili użytkowników</title>
+    <link rel='stylesheet' href='../css/main.css'>
+</head>
+
+<body>
+    <div >
+        <a href="/">Strona główna</a> > 
+        <a >Lista profili</a> 
+    </div>
+        <h1>Lista profili użytkowników:</h1>
+        <table class="entity-table">
+            <tr>
+                <th>Id</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Login</th>
+                <th>Hasło</th>
+                <th>Adres email</th>
+                <th>Opis</th>
+                <th>Akcje</th>
+            </tr>
+            <% profilList.forEach(function(profil){ %>
+            <tr>
+                <td><%= profil.idProfil %></td>
+                <td><%= profil.imie %></td>
+                <td><%= profil.nazwisko %></td>
+                <td><%= profil.loginUzytk %></td>
+                <td><%= profil.haslo %></td>
+                <td><%= profil.email %></td>
+                <td><%= profil.opis %></td>
+                <td class="actions">
+                    <a href="/profil/szczegoly?profil_id=<%= profil.idProfil %>">Szczegóły</a>
+                    <a href="/profil/edycja?profil_id=<%= profil.idProfil %>">Edytuj</a>
+                    <a href="/profil/usun?profil_id=<%= profil.idProfil %>">Usuń</a>
+                </td>
+            </tr>
+            <% }) %>
+            <tr class="table-footer">
+                <td colspan="8"><a href="/profil/zapiszProfil">Nowy użytkownik</a></td>
+            </tr>
+        </table>
+        
+    </main>
+    
+</body>
+
+</html>

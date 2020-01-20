@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Lista postów</title>
+    <link rel="stylesheet" href="../CSS/Profil.style.css" />
+
+
+</head>
+
+<body>
+	<div class="gora">
+		<img src="../ZDJ/Profil.png" alt="avatar" width="100" height="100"  >
+	</div>
+	
+	<div class="gora przycisk">
+		Strona główna: <input class="mojPrzyc" type="button" onclick="window.location.href = '/';" value="CLICK"/>		
+	</div>
+	<div class="gora przycisk">
+		Moje posty: <input class="mojPrzyc" type="button" onclick="window.location.href = '/posty';" value="CLICK"/>		
+	</div>
+	<div class="gora przycisk">
+		Moje miejsca: <input class="mojPrzyc" type="button" onclick="window.location.href = '/miejsce/listaMiejsc';" value="CLICK"/>		
+    </div>
+    <label class="labelka" >Lista ostatnio dodanych postów przez innych użytowników: </label>
+
+    <table class="entity-table tabela" id="tab">
+
+        <tr>
+            <th>Id postu</th>
+            <th>Id autora</th>
+            <th>Id miejsca</th>
+            <th>Tytuł</th>
+            <th>Ocena</th>
+            <th>Opis</th>
+            <th>Akcje</th>
+        </tr>
+        <% postList.forEach(function(post){ %>
+        <tr>
+            <td><%= post.idPost %></td>
+            <td><%= post.Profil_idProfil %></td>
+            <td><%= post.Miejsce_idMiejsca %></td>
+            <td><%= post.tytul %></td>
+            <td><%= post.ocena %></td>
+            <td><%= post.opis %></td>
+            <td class="actions">
+                <a href="/posty/szczegoly?post_id=<%= post.idPost %>">Szczegóły</a>
+            </td>
+        </tr>
+        <% }) %>
+        <tr class="table-footer">
+            <td colspan="7"><a href="/miejsce">Nowy post</a></td>
+        </tr>
+    </table>
+        
+    </main>
+    
+</body>
+
+</html>

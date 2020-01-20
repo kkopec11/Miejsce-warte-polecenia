@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8">
+	 <link rel="stylesheet" href="../css/MojeKonto.style.css" />
+    <title>Szczegłóły konta</title>
+  </head>
+	
+  <body>
+    <div class="nawigacja">
+        <p><a href="/">Strona główna</a> > 
+            <a href="/profil" >Lista profili</a> > 
+            Szczegóły konta</p>
+
+    </div>
+		<div class="zarej">
+		<h1>Szczegłóły konta<h1>
+		<br>
+		</div>
+		
+		  <div class="srodek " > 
+			  	<p  class="obramPole">
+					<label>Id:</label>
+					<label><%=profilId%></label>
+				</p>
+				<p class="obramPole">
+					<label>Imie:</label>
+					<label><%= profilList[0].imie%></label>
+				</p>
+				<p class="obramPole">
+					<label>Nazwisko:</label>	
+					<label><%= profilList[0].nazwisko%></label>
+				</p>
+				<p class="obramPole">
+					<label>Login:</label>
+					<label><%= profilList[0].loginUzytk%></label>
+				</p>
+				<p class="obramPole">
+					<label>Hasło:</label>
+					<label><%= profilList[0].haslo%></label>
+				</p>
+				<p class="obramPole">
+					<label>Adres e-mail:</label>
+					<label><%= profilList[0].email%></label>
+				</p>
+				<p class="obramPole">
+					<label>Własny opis:</label>
+					<label><%= profilList[0].opis%></label>
+				</p>
+					
+		
+		</div>
+		
+		<div class="zdjecie">
+			<img src="../ZDJ/MojeKonto.jpg" alt="krajobraz" width="600" height="400" >
+		</div>
+		
+  </body>
+</html>	
+
+
+	
