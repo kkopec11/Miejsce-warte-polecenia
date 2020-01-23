@@ -3,28 +3,33 @@ const form = document.getElementById('myForm');
 
 // Input
 const login = document.getElementById('login');
-const haslo = document.getElementById('haslo');
+const altitude = document.getElementById('altitude');
+const latitude = document.getElementById('latitude');
+const desc = document.getElementById('desc');
 
 // Głowna funkcja
+if(form){
 form.addEventListener('submit', (e)=> {
     if (
       validateLogin() &&
-      validateHaslo()
+      validateAltitude() &&
+      validateLatitude() &&
+      validateDesc()
     ) {
-      alert("Udało się poprawnie zalogować !");
+      alert("Udało się poprawnie dodać miejsce !");
     } else {
       console.log(validateLogin(login));
-	  console.log(validateHaslo(haslo));
+      console.log(validateAltitude(altitude));
+      console.log(validateLatitude(latitude));
+      console.log(validateDesc(desc));
     alert("Coś poszło nie tak, formularz zawiera błędy !");	
     event.preventDefault();
-
     }
   });
-  
+}
 // Kolor walidacji
 const red = '#F44336';
 const green = "#40ff00";
-
 
 // Walidatory
 function validateLogin() {
@@ -32,13 +37,20 @@ function validateLogin() {
   if (!checkIfOnlyLetters(login)) return;
   return true;
 }
-  function validateHaslo() {
-    if (checkIfEmpty(haslo)) return;
-    if (!meetLength(haslo, 4, 30)) return;
-    if (!ifRegexCorrect(haslo)) return;
-
+function validateAltitude() {
+    if (checkIfEmpty(altitude)) return;
+    if (!ifRegexCorrect(altitude)) return;
     return true;
-  }
+}
+function validateLatitude() {
+  if (checkIfEmpty(latitude)) return;
+  if (!ifRegexCorrect(latitude)) return;
+  return true;
+}
+function validateDesc() {
+  if (checkIfEmpty(desc)) return;
+  return true;
+}
 // Funkcje narzędziowe
 function checkIfEmpty(field) {
     if (isEmpty(field.value.trim())) {
@@ -73,32 +85,32 @@ function checkIfOnlyLetters(field) {
       return false;
     }
 }
-function meetLength(field, minLength, maxLength) {
-    if (field.value.length >= minLength && field.value.length < maxLength) {
-      setValid(field);
-      return true;
-    } else if (field.value.length < minLength) {
-      setInvalid(
-        field,
-        `${field.name} musi mieć minimum ${minLength} znaków długości`
-      );
-      return false;
-    } else {
-      setInvalid(
-        field,
-        `${field.name} musi być krótszy niż ${maxLength} znaków`
-      );
-      return false;
-    }
-  }
-  // Regex na: przynajmniej jednż dużą i małą literę oraz jedną cyfrę
-  regEx = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/;
-  function ifRegexCorrect(field) {
-    if (regEx.test(field.value)) {
-      setValid(field);
-      return true;
-    } else {
-      setInvalid(field, `${field.name} musi zawierać przynajmniej jedną dużą i małą litere oraz jedną cyfrę`);
-      return false;
-    }
+
+// Regex wysokośc oraz szerokość geograficzną
+
+// Pasujące:
+// +90.0, -127.554334
+// 45, 180
+// -90, -180
+// -90.000, -180.0000
+// +90, +180
+// 47.1231231, 179.99999999
+
+// Nie pasujące:
+// -90., -180.
+// +90.1, -100.111
+// -91, 123.456
+// 045, 180
+
+regEx = /^[0-9]+(\\.[0-9]+)?$/;
+
+//regEx = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
+function ifRegexCorrect(field) {
+  if (regEx.test(field.value)) {
+    setValid(field);
+    return true;
+  } else {
+    setInvalid(field, `${field.name} musi zawierać poprawną formę danych geograficznych Np:"+90.0, -127.554334"`);
+    return false;
+ }
 }

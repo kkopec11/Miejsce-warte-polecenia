@@ -15,33 +15,37 @@
 	
 	<div class="srodek">
         
-        <form action="/miejsce/<%= formAction %>" method="POST">
+        <form  id="myForm" action="/miejsce/<%= formAction %>" method="POST" novalidate>
             <div>
                 <h3>Dodaj nowe miejsce !</h3>
             </div>
             <input type="hidden" name="miejsce_id" value="<%= miejsce.idMiejsca %>"></input>
 
 			<p>
-                <label for="tytul">Tytuł:</label>
-                <input id="tytul" name="title" type="text" <%= formAction ? '' : 'readonly' %>
+                <label for="login">Tytuł:</label>
+                <input id="login" name="title" type="text" onfocusout="validateLogin()" <%= formAction ? '' : 'readonly' %>
                     value="<%= miejsce.tytul %>"></input>		
+                    <span></span>			
 			</p>
 			<p>
-                <label for="szerGeog">Szerokość geograficzna:</label>
-                <input id="szerGeog" name="szGeog" type="text" <%= formAction ? '' : 'readonly' %>
+                <label for="latitude">Szerokość geograficzna:</label>
+                <input id="latitude" name="szGeog" type="text" onfocusout="validateLatitude()" <%= formAction ? '' : 'readonly' %>
                     value="<%= miejsce.szerokoscGeog %>"></input>
+                    <span></span>			
 			</p>
 	
 			<p>
-				<label for="dlugGeog">Długość geograficzna:<label>
-                    <input id="dlugGeog" name="dlGeog" type="text" <%= formAction ? '' : 'readonly' %>
-                        value="<%= miejsce.dlugoscGeog %>"></input>
+				        <label for="altitude">Długość geograficzna:<label>
+                <input id="altitude" name="dlGeog" type="text" onfocusout="validateAltitude()" <%= formAction ? '' : 'readonly' %>
+                      value="<%= miejsce.dlugoscGeog %>"></input>
+                      <span></span>			
 	
 			</p>
 			<p>
-                <label for="opis">Opis:</label>
-                <input id="opis" name="desc" type="text" <%= formAction ? '' : 'readonly' %>
+                <label for="desc">Opis:</label>
+                <input id="desc" name="desc" type="text" onfocusout="validateDesc()" <%= formAction ? '' : 'readonly' %>
                     value="<%= miejsce.opis %>"></input>       
+                    <span></span>			
 			</p>
 
 		  
@@ -58,7 +62,7 @@
 	</div>
 	
 
-	<script src="JS/DodajMiejsce.js"></script>
+	<script src="../../JS/MiejsceValid.js"></script>
 
   </body>
 </html>	

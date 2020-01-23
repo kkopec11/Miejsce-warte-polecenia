@@ -1,0 +1,90 @@
+* {
+	background-color: rgb(155 ,205 ,95);
+}
+body{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 10% 80% 10%;
+
+}
+.errors-input {
+    border: 3px solid #e74c3c;
+}
+
+.errors-text {
+    font-size: 0.85em;
+}
+
+.errors-text {
+    color: #e74c3c;
+}
+input{
+	size: 20;
+}
+.zarej{
+	margin-top: 15px;
+	margin-left: 20px;
+	display: grid;
+	grid-column: 1;
+	grid-row: 1;
+}	
+
+.srodek{
+	margin-left:30px;
+	margin-right: 250px;
+	margin-top: 50px;
+	display: grid;
+	grid-column: 1;
+	grid-row: 2;
+	
+}
+
+.imie{
+	margin: 10px;
+	display: grid;
+	grid-column: 1;
+	grid-row: 2;
+}	
+
+.nazwisko{
+	margin: 10px;
+	display: grid;
+	grid-column: 1;
+	grid-row: 3;
+}
+.plec{
+	margin: 10px;	
+	
+}	
+.email{
+	margin: 10px;
+	display: grid;
+	grid-column: 1;
+	grid-row: 5;
+}	
+.nick{
+	margin: 10px;
+	display: grid;
+	grid-column: 1;
+	grid-row: 6;
+}	
+.opis{
+	margin: 10px;
+	display: grid;
+	grid-column: 1;
+	grid-row: 7;
+}			
+.przycisk{
+	
+	margin-left: 100px;
+	margin-right:150px;
+	
+	display: grid;
+	grid-column: 2;
+	grid-row: 3;
+}
+.zdjecie{
+	display: grid;
+	grid-column: 2/3;
+	grid-row: 2;
+}

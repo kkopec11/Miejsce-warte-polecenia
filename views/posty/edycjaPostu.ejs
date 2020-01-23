@@ -21,30 +21,39 @@
         </div>
 		<div class="srodek " > 
 
-            <form action="/posty/edytujZapisz" method="POST">
+            <form  id="myForm"  action="/posty/edytujZapisz" method="POST" novalidate>
 				<label for="idPost">ID:</label>
                 <input id="idPost" name="idPost" type="text" value="<%= postId %>" readonly></input>
 
                 <p>
                     <label for="idAutora">Id autora:</label>
-                    <input id="idAutora" name="idAut" type="text" value="<%= postList[0].Profil_idProfil %>"></input>
+                    <input id="idAutora" name="idAut" type="text" onfocusout="validateAutor()" value="<%= postList[0].Profil_idProfil %>"></input>
+                    <span></span>
+
                 </p> 
                 <p>
                     <label for="idMiejscaPostu">Id miejsca:</label>
-                    <input id="idMiejscaPostu" name="idMjscPst" type="text" value="<%= postList[0].Miejsce_idMiejsca %>"></input>
+                    <input id="idMiejscaPostu" name="idMjscPst" type="text" onfocusout="validateMiejsce()" value="<%= postList[0].Miejsce_idMiejsca %>"></input>
+                    <span></span>
+
                 </p> 
                 <p>
-                    <label for="tytul">Tytuł:</label>
-                    <input id="tytul" name="title" type="text" value="<%= postList[0].tytul %>"></input>
+                    <label for="title">Tytuł:</label>
+                    <input id="title" name="title" type="text" onfocusout="validateTitle()" value="<%= postList[0].tytul %>"></input>
+                    <span></span>
+
                 </p>  
                 <p>
-                    <label for="ocena" >Twoja ocena (1-10):</label>
-                    <input id="ocena" name="score" type="text" value="<%= postList[0].ocena %>"></input>
+                    <label for="score" >Twoja ocena (1-10):</label>
+                    <input id="score" name="score" type="text" onfocusout="validateScore()" value="<%= postList[0].ocena %>"></input>
+                    <span></span>
                         
                 </p>
                 <p>
-                    <label for="opis">Opis:</label>
-                    <input id="opis" name="desc" type="text" value="<%= postList[0].opis %>"></input>
+                    <label for="desc">Opis:</label>
+                    <input id="desc" name="desc" type="text" onfocusout="validateDesc()" value="<%= postList[0].opis %>"></input>
+                    <span></span>
+
                 </p>
             
                 <div class="form-actions-container">
@@ -58,8 +67,10 @@
 		
 		<div class="zdjecie">
 			<img src="../ZDJ/MojeKonto.jpg" alt="krajobraz" width="600" height="400" >
-		</div>
-		
+        </div>
+        
+        <script src="../../JS/PostValid.js"></script>
+
   </body>
 </html>	
 

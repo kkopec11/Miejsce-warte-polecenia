@@ -23,7 +23,10 @@ class Miejsce {
                 'insert into `mwpDb`.`Miejsce` (idMiejsca, tytul, szerokoscGeog, dlugoscGeog, opis) values (?, ?, ?, ?, ?)',
                 [miejsce.idMiejsca, miejsce.tytul, miejsce.szerokoscGeog, miejsce.dlugoscGeog, miejsce.opis]
             );
-        });  
+        }).catch(err => {
+            //błąd komunikacji z bazą danych
+            console.log(err);
+          });  
     }
 
     static list() {

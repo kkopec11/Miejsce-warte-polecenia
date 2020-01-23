@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
      <link rel="stylesheet" href="../css/newForm.css" />
+
     <title>Dodaj miejsce</title>
   </head>
   <body>
@@ -19,45 +20,45 @@
                 <input type="hidden" name="profil_id" value="<%= profil.idProfil %>"></input>
     
                 <p>
-                    <label for="imie">Imie:</label>
-                    <input id="imie" name="name" type="text" <%= formAction ? '' : 'readonly' %>
+                    <label for="firstName">Imie:</label>
+                    <input id="firstName" name="name" type="text" onfocusout="validateFirstName()" <%= formAction ? '' : 'readonly' %>
                         value="<%= profil.imie %>"></input>
                         <span ></span>
 
                 </p>
                 
                 <p>
-                    <label for="nazwisko">Nazwisko:</label>
-                    <input id="nazwisko" name="surname" type="text" <%= formAction ? '' : 'readonly' %>
+                    <label for="lastName">Nazwisko:</label>
+                    <input id="lastName" name="surname" type="text" onfocusout="validateLastName()" <%= formAction ? '' : 'readonly' %>
                         value="<%= profil.nazwisko %>"></input>
                         <span ></span>
  
                 </p>
                 
                 <p>
-                    <label for="loginUzytk">Login:</label>
-                    <input id="loginUzytk" name="log" type="text" <%= formAction ? '' : 'readonly' %>
+                    <label for="login">Login:</label>
+                    <input id="login" name="log" type="text" onfocusout="validateLogin()" <%= formAction ? '' : 'readonly' %>
                     value="<%= profil.loginUzytk %>"></input>
                     <span ></span>
 
                 </p>
                 <p>
-                    <label for="haslo">Hasło:</label>
-                    <input id="haslo" name="password" type="text" <%= formAction ? '' : 'readonly' %>
+                    <label for="password">Hasło:</label>
+                    <input id="password" name="password" type="text" onfocusout="validatePassword()" <%= formAction ? '' : 'readonly' %>
                     value="<%= profil.haslo %>"></input>      
                     <span ></span>
 
                 </p>
                 <p>
                     <label for="email">Adres email:</label>
-                    <input id="email" name="mail" type="text" <%= formAction ? '' : 'readonly' %>
+                    <input id="email" name="mail" type="text"  onfocusout="validateEmail()" <%= formAction ? '' : 'readonly' %>
                     value="<%= profil.email %>"></input>
                     <span ></span>
 
                 </p>
                 <p>
-                    <label for="opis">Opis:</label>
-                    <input id="opis" name="desc" type="text" <%= formAction ? '' : 'readonly' %>
+                    <label for="desc">Opis:</label>
+                    <input id="desc" name="desc" type="text" onfocusout="validateDesc()" <%= formAction ? '' : 'readonly' %>
                     value="<%= profil.opis %>"></input>    
                     <span ></span>
 
@@ -71,16 +72,18 @@
                     <a href="/" class="action-btn">Anuluj</a>
                 </div>
             </form>
-	</div>
+    </div>
+
+
 	<div class="zdjecie">
 			<img src="../ZDJ/dodajProfil.jpg" alt="krajobraz" width="600" height="400" >
 	</div>
 	
 
-	<script src="../../public/JS/Rejestracja.js"></script>
+    <script src="../../JS/ProfilValid.js"></script>
 
   </body>
 </html>	
 
 
-	
+    

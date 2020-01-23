@@ -17,25 +17,28 @@
 	<div class="srodek">
         
             <h2> <%= pageTitle %></h2>
-            <form action="/posty/<%= formAction %>" method="POST">
+            <form  id="myForm"  action="/posty/<%= formAction %>" method="POST" novalidate>
                 <input type="hidden" name="post_id" value="<%= post.idPost %>"></input>
     
                 <p>
-                    <label for="Profil_idProfil">Wpisz swoje ID :</label>
-                    <input id="Profil_idProfil" name="idAut" type="text" <%= formAction ? '' : 'readonly' %>
+                    <label for="idAutora">Wpisz swoje ID :</label>
+                    <input id="idAutora" name="idAut" type="text" onfocusout="validateAutor()" <%= formAction ? '' : 'readonly' %>
                         value="<%= post.Profil_idProfil %>"></input>
-        
+                        <span></span>
+    
                 </p>
                 <p>
-                    <label for="Miejsce_idMiejsca">Wpisz ID miejsca wybranego poprzednio:</label>
-                    <input id="Miejsce_idMiejsca" name="idMjscPst" type="text" <%= formAction ? '' : 'readonly' %>
+                    <label for="idMiejscaPostu">Wpisz ID miejsca wybranego poprzednio:</label>
+                    <input id="idMiejscaPostu" name="idMjscPst" type="text" onfocusout="validateMiejsce()" <%= formAction ? '' : 'readonly' %>
                         value="<%= post.Miejsce_idMiejsca %>"></input>
+                        <span></span>
         
                 </p>
                 <p>
-                    <label for="tytul">Tytuł:</label>
-                    <input id="tytul" name="title" type="text" <%= formAction ? '' : 'readonly' %>
+                    <label for="title">Tytuł:</label>
+                    <input id="title" name="title" type="text" onfocusout="validateTitle()" <%= formAction ? '' : 'readonly' %>
                         value="<%= post.tytul %>"></input>
+                        <span></span>
         
                 </p>
                
@@ -46,9 +49,9 @@
                 -->
                 
                 <p>
-                    <label for="ocena" >Twoja ocena:</label>
+                    <label for="score" >Twoja ocena:</label>
                     <br>
-                    <select id="ocena" name="score" type="text" <%= formAction ? '' : 'readonly' %>
+                    <select id="score" name="score" type="text" onfocusout="validateScore()" <%= formAction ? '' : 'readonly' %>
                         <option ></option>
                             <option >1</option>
                             <option >2</option>
@@ -61,15 +64,19 @@
                             <option >9</option>
                             <option >10</option>
                     value="<%= post.ocena %>"></select>
+                    <span></span>
+
                 </p>
                
                
                 <p>
 
-                    <label for="opis">Opis:</label>
-                    <input id="opis" name="desc" type="text" <%= formAction ? '' : 'readonly' %>
+                    <label for="desc">Opis:</label>
+                    <input id="desc" name="desc" type="text" onfocusout="validateDesc()" <%= formAction ? '' : 'readonly' %>
                         value="<%= post.opis %>"></input>   
-                </p>
+                        <span></span>
+
+               </p>
                     <div class="form-actions-container">
                         <% if( formAction ) { %>
                         <input type="submit" value="Zapisz" class="action-btn"></input>
@@ -86,7 +93,7 @@
 	</div>
 	
 
-	<script src="JS/DodajMiejsce.js"></script>
+	<script src="../../JS/PostValid.js"></script>
 
   </body>
 </html>	

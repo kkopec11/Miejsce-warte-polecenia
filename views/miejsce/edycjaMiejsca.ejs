@@ -21,26 +21,29 @@
 		<br>
         </div>
 		<div class="srodek" > 
-            <form action="/miejsce/edytujZapisz" method="POST">
+            <form id="myForm" action="/miejsce/edytujZapisz" method="POST" novalidate>
 				<label for="idMiejsca">ID:</label>
                 <input id="idMiejsca" name="miejsceId" type="text" value="<%= miejsceId %>" readonly></input>
     
                 <p>
-                    <label for="tytul">Tytuł:</label>
-                    <input id="tytul" name="title" type="text" value="<%= miejsceList[0].tytul %>"></input>
-        
+                    <label for="login">Tytuł:</label>
+                    <input id="login" name="title" type="text" onfocusout="validateLogin()" value="<%= miejsceList[0].tytul %>"></input>
+                    <span></span>			
                 </p>  
                 <p>
-                    <label for="szerGeog">Szerokość geograficzna:</label>
-                    <input id="szerGeog" name="szGeog" type="text" value="<%= miejsceList[0].szerokoscGeog %>"></input>                 
+                    <label for="latitude">Szerokość geograficzna:</label>
+                    <input id="latitude" name="szGeog" type="text" onfocusout="validateLatitude()" value="<%= miejsceList[0].szerokoscGeog %>"></input>                 
+                    <span></span>			
                 </p>
                 <p>
-                    <label for="dlugGeog">Długość geograficzna:</label>
-                    <input id="dlugGeog" name="dlGeog" type="text" value="<%= miejsceList[0].dlugoscGeog %>"></input>
+                    <label for="altitude">Długość geograficzna:</label>
+                    <input id="altitude" name="dlGeog" type="text" onfocusout="validateAltitude()" value="<%= miejsceList[0].dlugoscGeog %>"></input>
+                    <span></span>			
                 </p>
                 <p>
-                    <label for="opis">Opis:</label>
-                    <input id="opis" name="desc" type="text" value="<%= miejsceList[0].opis %>"></input>
+                    <label for="desc">Opis:</label>
+                    <input id="desc" name="desc" type="text" onfocusout="validateDesc()" value="<%= miejsceList[0].opis %>"></input>
+                    <span></span>			
                 </p>            
                 <div class="form-actions-container">
                     <input type="submit" value="Zapisz" class="action-btn"></input>
@@ -52,7 +55,9 @@
 		<div class="zdjecie">
 			<img src="../ZDJ/MojeKonto.jpg" alt="krajobraz" width="600" height="400" >
 		</div>
-		
+        
+        <script src="../../JS/MiejsceValid.js"></script>
+
   </body>
 </html>	
 

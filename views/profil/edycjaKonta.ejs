@@ -21,34 +21,43 @@
         </div>
 		<div class="srodek" > 
 
-            <form action="/profil/edytujZapisz" method="POST">
+            <form id="myForm" action="/profil/edytujZapisz" method="POST" novalidate>
 				<label for="idProfil">ID:</label>
-                <input id="idProfil" name="idProfil" type="text" value="<%= profilId %>" readonly></input>
+                <input id="idProfil" name="idProfil" type="text"  value="<%= profilId %>" readonly></input>
 
                 <p>
-                    <label for="imie">Imie:</label>
-                    <input id="imie" name="name" type="text" value="<%= profilList[0].imie %>"></input>
-        
+                    <label for="firstName">Imie:</label>
+                    <input id="firstName" name="name" type="text" onfocusout="validateFirstName()" value="<%= profilList[0].imie %>"></input>
+                    <span ></span>
                 </p>  
                 <p>
-                    <label for="nazwisko">Nazwisko:</label>
-                    <input id="nazwisko" name="surname" type="text" value="<%= profilList[0].nazwisko %>"></input>                 
+                    <label for="lastName">Nazwisko:</label>
+                    <input id="lastName" name="surname" type="text" onfocusout="validateLastName()" value="<%= profilList[0].nazwisko %>"></input>                 
+                    <span ></span>
                 </p>
                 <p>
                     <label for="login">Login:</label>
-                    <input id="login" name="log" type="text" value="<%= profilList[0].loginUzytk %>"></input>
+                    <input id="login" name="log" type="text" onfocusout="validateLogin()" value="<%= profilList[0].loginUzytk %>"></input>
+                    <span ></span>
+
                 </p>
                 <p>
-                    <label for="haslo">Hasło:</label>
-                    <input id="haslo" name="password" type="text" value="<%= profilList[0].haslo %>"></input>
+                    <label for="password">Hasło:</label>
+                    <input id="password" name="password" type="text" onfocusout="validatePassword()" value="<%= profilList[0].haslo %>"></input>
+                    <span ></span>
+
                 </p>
                 <p>
                     <label for="email">Adres email:</label>
-                    <input id="email" name="mail" type="text"value="<%= profilList[0].email %>"></input>
+                    <input id="email" name="mail" type="text" onfocusout="validateEmail()" value="<%= profilList[0].email %>"></input>
+                    <span ></span>
+
                 </p>
                 <p>
-                    <label for="opis">Opis:</label>
-                    <input id="opis" name="desc" type="text" value="<%= profilList[0].opis %>"></input>
+                    <label for="desc">Opis:</label>
+                    <input id="desc" name="desc" type="text" onfocusout="validateDesc()" value="<%= profilList[0].opis %>"></input>
+                    <span ></span>
+
                 </p>            
                 <div class="form-actions-container">
                     <input type="submit" value="Zapisz" class="action-btn"></input>
@@ -59,8 +68,10 @@
 		
 		<div class="zdjecie">
 			<img src="../ZDJ/MojeKonto.jpg" alt="krajobraz" width="600" height="400" >
-		</div>
-		
+        </div>
+        
+	    <script src="../../JS/ProfilValid.js"></script>
+	
   </body>
 </html>	
 

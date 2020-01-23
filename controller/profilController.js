@@ -18,14 +18,14 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/zapiszProfil", (req, res, next) => {
-    res.render('profil/profilForm', { pageTitle: "Nowy użytkownik", formAction: "add", profil: {} }).window.locaction.reloud(false);
+    res.render('profil/profilForm', { pageTitle: "Nowy użytkownik", formAction: "add", profil: {} });
 });
 
 router.post("/add", (req, res, next) => {
     const newProfil = new Profil(req.body.name, req.body.surname, req.body.log, req.body.password, req.body.mail, req.body.desc);
     Profil.add(newProfil)
       .then(() => {
-        res.redirect("/profil").window.locaction.reloud(false);
+        res.redirect("/profil");
       })
       .catch(err => {
         console.log(err);
@@ -35,7 +35,7 @@ router.post("/add", (req, res, next) => {
 
 router.get("/usun", (req, res, next) => {
     Profil.delete(req.query.profil_id);
-    res.redirect("/profil").window.locaction.reloud(false);
+    res.redirect("/profil");
 });
 
 router.get("/szczegoly", (req, res, next) => {
@@ -51,7 +51,7 @@ router.get("/szczegoly", (req, res, next) => {
 router.post("/edytujZapisz", (req, res, next) => {
     const newProfill =  new Profil(req.body.name, req.body.surname, req.body.log, req.body.password, req.body.mail, req.body.desc, req.body.idProfil);
     Profil.edit(newProfill);
-    res.redirect("/profil").window.locaction.reloud(false);
+    res.redirect("/profil");
 });
 
 router.get("/mojekonto", (req, res, next) => {
