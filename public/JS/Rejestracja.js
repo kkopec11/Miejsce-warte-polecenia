@@ -2,28 +2,28 @@
 const form = document.getElementById('myForm');
 
 // Input
-const login = document.getElementById('login');
-const password = document.getElementById('password');
-const fistName = document.getElementById('fistName');
-const lastName = document.getElementById('lastName');
+const loginUzytk = document.getElementById('loginUzytk');
+const password = document.getElementById('haslo');
+const imie = document.getElementById('imie');
+const lastName = document.getElementById('nazwisko');
 const email = document.getElementById('email');
 
 // Głowna funkcja
 form.addEventListener('submit', (e)=> {
     event.preventDefault();
     if (
-      validateLogin() &&
+      validateloginUzytk() &&
 	  validatePassword() &&
-	  validateFirstName() &&
+	  validateImie() &&
 	  validateLastName() &&
 	  validateEmail()
 
     ) {
       alert("Udało się poprawnie wypełnić formularz !");
     } else {
-      console.log(validateLogin(login));
+      console.log(validateloginUzytk(loginUzytk));
 	  console.log(validatePassword(password));
-	  console.log(validateFirstName(firstName));
+	  console.log(validateimie(imie));
 	  console.log(validateLastName(lastName));
 	  console.log(validateEmail(email));
 	  alert("Coś poszło nie tak, formularz zawiera błędy !");	
@@ -36,9 +36,9 @@ const green = "#40ff00";
 
 
 // Walidatory
-function validateLogin() {
-  if (checkIfEmpty(login)) return;
-  if (!checkIfOnlyLetters(login)) return;
+function validateloginUzytk() {
+  if (checkIfEmpty(loginUzytk)) return;
+  if (!checkIfOnlyLetters(loginUzytk)) return;
   return true;
 }
 function validatePassword() {
@@ -59,9 +59,9 @@ function validateEmail(){
     if(!containsCharacters(email, 5)) return;
     return true;
 }
-function validateFirstName() {
-	if (checkIfEmpty(firstName)) return;
-	if (!checkIfOnlyLetters(firstName)) return;
+function validateImie() {
+	if (checkIfEmpty(imie)) return;
+	if (!checkIfOnlyLetters(imie)) return;
 	return true;
 }
 function validateLastName() {

@@ -59,9 +59,9 @@ router.get("/szczegoly", (req, res, next) => {
 });
 
 router.get("/edycja", (req, res, next) => {
-    Post.getListFromIdEdyt(req.query.profil_id).then(
-      ([profilList, metadata]) => {
-        res.render('profil/edycjaPostu', {profilId: req.query.profil_id, profilList: profilList});
+    Post.getListFromIdEdyt(req.query.post_id).then(
+      ([postList, metadata]) => {
+        res.render('posty/edycjaPostu', {postId: req.query.post_id, postList: postList});
       }).catch(err => {
       console.log(err);
   });
@@ -69,6 +69,8 @@ router.get("/edycja", (req, res, next) => {
 
 router.post("/edytujZapisz", (req, res, next) => {
     const newPost =  new Post(req.body.title, req.body.score, req.body.desc, req.body.idAut, req.body.idMjscPst, req.body.idPost );
+    //console.log(newPost);
+    //console.log(Post);
     Post.edit(newPost);
     res.redirect("/posty");
 });

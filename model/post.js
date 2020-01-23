@@ -26,18 +26,18 @@ class Post {
     }
 
     static edit(post) {
-        return  db.execute('UPDATE `mwpDb`.`Post` SET `tytul` = ? , `ocena` = ?, `opis` = ?, `Profil_idProfil` =  ? ,`Miejsce_idMiejsca` =  ? WHERE `idPost` = '+ profil.idPost,
-        [post.idPost, post.tytul, post.ocena, post.opis, post.Profil_idProfil, post.Miejsce_idMiejsca]
+        return  db.execute('UPDATE `mwpDb`.`Post` SET `tytul` = ? , `ocena` = ?, `opis` = ?, `Profil_idProfil` =  ? ,`Miejsce_idMiejsca` =  ? WHERE `idPost` = '+ post.idPost,
+        [post.tytul, post.ocena, post.opis, post.Profil_idProfil, post.Miejsce_idMiejsca]
         );  
     }
 
     static getListFromId(id){
         return db.execute('select * from Post WHERE `idPost` ='+ id );
     }
-    static getListFromIdEdyt(idProfil, idMiejsca){
-        return db.execute('SELECT * FROM `mwpDb`.`Post` INNER JOIN `mwpDb`.`Profil` ON `mwpDb`.`Profil`.`idProfil` = `mwpDb`.`Post`.`Profil_idProfil` INNER JOIN `mwpDb`.`Miejsce` ON `mwpDb`.`Miejsce`.`idMiejsca` = `mwpDb`.`Post`.`Miejsce_idMiejsca` WHERE `mwpDb`.`Profil`.`idProfil` = ? and `mwpDb`.`Miejsce`.`idMiejsca` =  ?', [idProfil, idMiejsca]);
 
-    }
+    static getListFromIdEdyt(idPost){
+            return db.execute('SELECT SQL_NO_CACHE post.idPost, Profil_idProfil, Miejsce_idMiejsca, post.tytul, post.ocena, post.opis FROM `mwpDb`.`Post` INNER JOIN `mwpDb`.`Profil` ON `mwpDb`.`Profil`.`idProfil` = `mwpDb`.`Post`.`Profil_idProfil` INNER JOIN `mwpDb`.`Miejsce` ON `mwpDb`.`Miejsce`.`idMiejsca` = `mwpDb`.`Post`.`Miejsce_idMiejsca` WHERE `mwpDb`.`Post`.`idPost` = ? ', [idPost]);
+    }    
 
     static delete(id) {
     return db.execute('DELETE FROM `mwpDb`.`Post` WHERE `idPost`= ' + id);

@@ -39,7 +39,7 @@
 	<div class="prawa" >
 		<h3>Zaloguj się tutaj</h3>
 		<div class="logowanie bialeTlo">
-			<form action="/posty/profil" method="GET">
+			<form id="myForm" action="/posty/profil" method="GET" novalidate>
 				<p>
 					<label for="login">Login</label>
 					<input type="text" name="Login" id="login" onfocusout="validateLogin()"/>
@@ -63,6 +63,7 @@
 		</div>
 	</div>
 	<script src="JS/StronaGlowna.js"></script>
+	<script src="JS/Rejestracja.js"></script>
 
   </body>
 </html>	

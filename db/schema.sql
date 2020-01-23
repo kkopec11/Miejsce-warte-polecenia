@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `mwpDb`.`Profil` (
 -- Table: Post
 CREATE TABLE IF NOT EXISTS `mwpDb`.`Post` (
     `idPost` INT NOT NULL,
-    `tytul` varchar(40)  NOT NULL,
+    `tytulPost` varchar(40)  NOT NULL,
     `ocena` int  NOT NULL,
     `opis` varchar (1000)  NOT NULL,
     `Profil_idProfil` int  NOT NULL,
