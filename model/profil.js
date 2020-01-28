@@ -50,6 +50,10 @@ class Profil {
         return db.execute('select * from Profil');
     }
 
+    static findByEmail(email) {
+        return db.execute('SELECT COUNT(*) FROM `mwpDb`.`Profil` WHERE `email`= ' + email);
+      }
+
 }
 
 module.exports = Profil;

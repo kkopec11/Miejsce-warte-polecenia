@@ -2,16 +2,17 @@ const express = require('express');
 const router = express.Router();
 
 const Profil = require('../model/profil');
+const bazaDanychWalid = require('../model/bazaDanychWalid')
 
 
 router.get("/", (req, res, next) => {
     Profil.list()
       .then( ([profilList, metadata]) => {
-        //wywołane w momencie poprawnego wykonania instrukcji sql i zwrócenia wyniku
+        // wywołane w momencie poprawnego wykonania instrukcji sql i zwrócenia wyniku
         res.render('profil/profilList', {profilList: profilList});
       })
       .catch(err => {
-        //błąd komunikacji z bazą danych
+        // błąd komunikacji z bazą danych
         console.log(err);
       });
     
@@ -23,14 +24,28 @@ router.get("/zapiszProfil", (req, res, next) => {
 
 router.post("/add", (req, res, next) => {
     const newProfil = new Profil(req.body.name, req.body.surname, req.body.log, req.body.password, req.body.mail, req.body.desc);
-    Profil.add(newProfil)
+    // const email = req.body.email;
+    // const sprawdz = Profil.findByEmail(email);
+    // if(sprawdz){
+    if (bazaDanychWalid.sprawdzProfil(newProfil) != true){
+      Profil.add(newProfil)
       .then(() => {
         res.redirect("/profil");
       })
       .catch(err => {
         console.log(err);
       });
-    
+      
+    }else{
+      console.log("Rekord o podanych wartościach istnieje już w bazie danych");
+      res.redirect("/profil");
+
+      
+    }
+     
+  //  }else{
+  //     alert("Taki email juz istnieje!");
+  //  } 
 });
 
 router.get("/usun", (req, res, next) => {

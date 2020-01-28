@@ -1,9 +1,7 @@
 
 const db = require('../db/mysql');
 
-let nextId = 1;
 
-const miejsceExtent = [];
 
 class Miejsce {
     //parametr id jest na końcu, bo jest opcjonalny
@@ -31,6 +29,10 @@ class Miejsce {
 
     static list() {
         return db.execute('select * from Miejsce');
+    }
+    static listTytul() {
+        console.log(db.execute('select tytul from Miejsce'));
+        return db.execute('select tytul from Miejsce');
     }
 
     static getListFromId(id){
